@@ -2,38 +2,38 @@
 
 <tags ms.service="mysql" ms.date="" wacn.date="04/01/2016"/>
 
-# MySQL master-slave replication and read-only instances
-MySQL Database on Azure supports the use of the replicate function to create slave instances for a MySQL instance. All changes to the master instance will be replicated to the slave instance. You can use this function as a simple way to implement flexible expansion and overcome the access restrictions on an individual database instance, thereby reducing the running load and increasing availability.
+# MySQL master-subordinate replication and read-only instances
+The **MySQL Database on Azure** option on the Azure portal supports the use of the replicate function to create subordinate instances, also known as slave instances, for a MySQL instance. All changes to the master instance will be replicated to the subordinate instance. You can use this function as a simple way to implement flexible expansion and overcome the access restrictions on an individual database instance, which reduces the running load and increases availability.
 
-  For business intelligence reports (BI) or database warehouse solutions, users generally want to run service report queries on independent read-only instances (rather than generating read-only instances of the database). The replicate function can also be used to migrate databases between the generation environment and the development environment. You can also use the replicate function to improve the generation environment’s availability - disaster tolerance. If an error occurs, you can upgrade read-only instances to replace the invalid master instance and switch the workload, thereby ensuring the availability and continuity of services.
+  For business intelligence (BI) reports or database warehouse solutions, users generally want to run service report queries on independent read-only instances. A subordinate instance serves this role. The replicate function can also be used to migrate databases between the generation environment and the development environment. You can also use the replicate function to improve the generation environment’s availability to provide disaster tolerance. If an error occurs, you can upgrade read-only instances to replace the faulty master instance and switch the workload to provide availability and continuity of services.
 
-When you create a slave instance, Azure first performs a backup of the master instance, and then creates a new read-only instance based on the backup to serve as the slave instance. After this, Azure will continually replicate all changes to the master instance on the slave instance.
+When you create a subordinate instance, Azure first performs a backup of the master instance and then creates a new read-only instance that's based on the backup to serve as the subordinate instance. After this, Azure will continually replicate all changes to the master instance on the subordinate instance.
 
 
 Notes:
 
-1. MySQL Database on Azure only supports the creation of slave instances for MySQL 5.6; MySQL 5.5 is not supported.
-2. The slave instance must use the same version of MySQL as the master instance. MySQL Database on Azure does not support replication between different versions of MySQL.
-3. MySQL Database on Azure currently only supports slave instances in the same location (data center) as the master instance.
-4. MySQL Database on Azure currently supports a maximum of 5 slave instances of the same master instance.
-5. In order to ensure that data remains consistent between the master and slave instances, slave instances are read-only instances. All MySQL links on slave instances are read-only links. You cannot create, modify or delete databases or database accounts on the slave instance. You can perform these operations on the master instance, and the system will automatically synchronize them to the slave instance(s).
+1. **MySQL Database on Azure** supports the creation of subordinate instances only for MySQL 5.6. MySQL 5.5 is not supported.
+2. The subordinate instance must use the same version of MySQL as the master instance. **MySQL Database on Azure** does not support replication between different versions of MySQL.
+3. **MySQL Database on Azure** currently only supports subordinate instances in the same location (data center) as the master instance.
+4. **MySQL Database on Azure** currently supports a maximum of five subordinate instances of the same master instance.
+5. In order to ensure that data remains consistent between the master and subordinate instances, subordinate instances are read-only instances. All MySQL links on subordinate instances are read-only links. You cannot create, modify, or delete databases or database accounts on the subordinate instance. You can perform these operations on the master instance, and the system will automatically synchronize them to the subordinate instances.
 
 
-## Create read-only (slave) instances
-1.	Select an existing instance and click on the “Replicate” page.
-2.	Click on “Add slave instance” at the bottom and enter the name of the slave server. Confirm that you understand the effect on the charges and then click on “Submit”.
+## Create read-only (subordinate) instances
+1.	Select an existing instance, and then click **Replicate**.
+2.	Click **Add slave instance** at the bottom, and enter the name of the subordinate server. Confirm that you understand the effect on the charges, and then click **Submit**.
 ![Add slave instances][1]
 
-Note: As MySQL Database on Azure performs a backup of the master instance during the process of creating slave instances, in order to prevent the backup from failing, please ensure that there are currently no queries or changes on the master instance that require a long time to run.
+Note: **MySQL Database on Azure** performs a backup of the master instance during the process of creating subordinate instances. To prevent a failure during backup, make sure that no queries or changes that take a long time are running on the master instance.
 
-## Monitoring the replication status of slave instances
-Once the slave instance has been created, you can monitor the status of replication between the master instance and slave instance(s) in a variety of ways.
+## Monitor the replication status of subordinate instances
+After you create the subordinate instance, you can monitor the status of replication between the master instance and subordinate instances in a variety of ways.
 
-Select the master instance and click on the “Replicate” page. This page shows all of the master instance’s slave instances and their statuses.
+Select the master instance, and click **Replicate**. This page shows all of the master instance’s subordinate instances and their statuses.
 
 ![Monitor replication][2]
 
-Select a slave instance and click on the “Replicate” page. This page shows the replication status of the slave instance and the name of the corresponding master instance.
+Select a subordinate instance and click **Replicate**. This page shows the replication status of the subordinate instance and the name of the corresponding master instance.
 ![Replicate][3]
 
 ## Implement read/write separation in applications
@@ -66,10 +66,10 @@ A Java sample program for read/write separation at the application end is shown 
 	        conn.createStatement().executeUpdate("update t1 set id = id+1;");
 	        conn.commit();    
 	
-	        // Set up connection to slave;
+	        // Set up connection to subordinate;
 	        conn.setReadOnly(true);
 	        
-	        // Now, do a query from a slave
+	        // Now, do a query from a subordinate
 	        try (Statement statement = conn.createStatement())
 	    	{
 	    		ResultSet res = statement.executeQuery("show tables");
@@ -85,18 +85,24 @@ A Java sample program for read/write separation at the application end is shown 
 
 
 
-## Upgrade slave instances
-You can upgrade a slave instance to an online read/write instance. Once the instance is upgraded, changes on the master instance will no longer be replicated to this instance. You can perform read/write operations on this instance.
-1.	Select the slave instance you need to upgrade and click on the “Replicate” page.
-2.	Click on “Upgrade” at the bottom of the page and then click confirm.
-![Upgrade slave instances][4]
+## Upgrade subordinate instances
+You can upgrade a subordinate instance to an online read/write instance. After you upgrade the instance, changes on the master instance will no longer be replicated to this instance. You can perform read/write operations on this instance.
+1.	Select the subordinate instance that you need to upgrade, and click **Replicate**.
+2.	Click **Upgrade** at the bottom of the page, and then click **Confirm**.
+![Upgrade subordinate instances][4]
 
-## Master-slave replication FAQs
-• I want to change the performance version of the master instance, for example by going up from MS4 to MS5 or going down from MS6 to MS5. Will the version for slave instances be updated as well? The performance version for slave instances will not change with that of the master instance, but you can change the performance version for slave instances separately if necessary.
+## Master-subordinate replication FAQs
+Q: I want to change the performance version of the master instance. For example, I might want to go up from MS4 to MS5 or go down from MS6 to MS5. Will the version for subordinate instances be updated as well?
 
-• I would like to use the master-slave replication function, but my database instance is on version 5.5; what should I do? Master-slave replication only supports version 5.6. You can manually upgrade the database implementation to version 5.6 first, and then use the replicate function.
+A: The performance version for subordinate instances will not change with that of the master instance. However, you can change the performance version of subordinate instances separately.
 
-• How do I upgrade the database from version 5.5 to version 5.6? We do not currently support one-key upgrades. The way around this is to export the data from the original version 5.5 instance using mysqldump, create a new version 5.6 database server instance, and then import the data; once it passes compatibility testing, you can migrate the application to the version 5.6 instance. If your original database is the generation environment or you cannot accept any downtime, you can manually create a snapshot on the original database, restore it to a completely new instance, and then perform the migration and upgrade on the restored instance. This will reduce the impact on the original database.
+Q: I would like to use the master-subordinate replication function, but my database instance is on version 5.5. What should I do?
+
+A: Master-subordinate replication only supports version 5.6. You can manually upgrade the database implementation to version 5.6, and then you use the replicate function.
+
+Q: How do I upgrade the database from version 5.5 to version 5.6?
+
+A: We do not currently support one-key upgrades. The way around this is to export the data from the original version 5.5 instance by using mysqldump, create a new version 5.6 database server instance, and then import the data. After it passes compatibility testing, you can migrate the application to the version 5.6 instance. If your original database is the generation environment or you cannot accept any downtime, you can manually create a snapshot of the original database, restore it to a completely new instance, and then perform the migration and upgrade on the restored instance. This will reduce the impact on the original database.
 
 
 
