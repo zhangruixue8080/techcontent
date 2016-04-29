@@ -2,64 +2,62 @@
 
 <tags ms.service="mysql" ms.date="" wacn.date="04/07/2016"/>
 
-# Backup and restore MySQL Database on Azure
+# Back up and restore a MySQL database on Azure
 
-MySQL Database on Azure supports full backups (also known as snapshot backups) and incremental backups. Space used for backups does not count towards the storage limit to the database. You can go back to any time point in the last 7 days or any specific snapshot backup stored in the system.
+The **MySQL Database on Azure** option on the Azure portal supports full backups and incremental backups. Full backups are also known as snapshot backups. Space that's used for backups does not count toward the storage limit of the database. You can restore from any time point in the last seven days or from any specific snapshot backup that's stored in the system.
 
 ## **Full backups**
 
-MySQL Database on Azure automatically backs up your MySQL Database every day at the time that you specified. This is a full backup. Full backups are retained for 30 days.
+**MySQL Database on Azure** automatically backs up your MySQL database every day at the time that you specified. This is a full backup. Full backups are retained for 30 days.
 
-You can also instantly perform a manual full backup up. You can generate a total of 10 manual full backups. Manual full backups are not automatically removed, so once you reach the limit, you will need to delete a manual full backup before you can create a new manual full backup.
+You can also instantly perform a manual full backup. You can generate a total of 10 manual full backups. Manual full backups are not automatically removed. When you reach the limit, you will need to delete a manual full backup before you can create a new manual full backup.
 
-Instant manual backup process:
+Here's the instant manual backup process:
 
-1. Log in to the [Azure Management Portal](http://manage.windowsazure.cn/) and click on “MYSQL DATABASE ON AZURE” in the services list on the left.
-2.	In the server list, click on the database server you want to restore to enter the server interface, then click on the “Backup” page.
-3.	Press the “Instant backup” button and confirm the operation.
+1. Sign in to the [Azure portal](http://manage.windowsazure.com/), and click on **MYSQL DATABASE ON AZURE** in the services list in the left pane.
+2.	In the server list, click the database server that you want to back up to open the server interface, then click **Backup**.
+3.	Click the **Instant backup** button, and confirm the operation.
 
 ## **Incremental backups**
 
-MySQL Database on Azure automatically backs up newly added sections (or changed sections) of the database for the last 7 days to in order to enable rollback based on any point in time. You do not need to do anything for this to happen.
+**MySQL Database on Azure** automatically backs up newly added sections or changes to the database for the last seven days in order to enable rollback based on any point in time. You don't need to do anything for this to happen.
 
 ## **Restore the database to any point in time**
 
-MySQL Database on Azure supports restoring to any time point in the last 7 days.
+With **MySQL Database on Azure**, you can restore a MySQL database to any time point in the last seven days.
 
-Process for restoring to a particular time point:
+To restore to a particular time point:
 
-1. Log in to the [Azure Management Portal](http://manage.windowsazure.cn/) and click on “MYSQL DATABASE ON AZURE” in the services list on the left.
-2. In the server list, click on the database server you want to restore to enter the server interface. Click on the “Operation panel” page.
+1. Sign in to the [Azure portal](http://manage.windowsazure.com/), and click **MYSQL DATABASE ON AZURE** in the services list in the left pane.
+2. In the server list, click the database server that you want to restore to open the server interface, and then click **Operation panel**.
 ![Restore to any point in time][1]
-3. Press the “Restore” button in the task menu at the bottom. A dialogue box will pop up.
-4. The “Restore type” is already set to “Return to a time point” by default. Select the time point, the target database server instance and the version that you want to restore. Then press the “Finish” button.
+3. Click the **Restore** button in the task menu at the bottom. A dialogue box opens.
+4. The **Restore type** is already set to **Return to a time point** by default. Select the time point, the target database server instance, and the version that you want to restore. Click the **Finish** button.
 ![Restore to any point in time][2]
-5. Go back to the server list page to confirm that the server was successfully created (the status has changed to “Running”). The data recovery process may take anything from a few minutes to several hours, depending on the time point you choose and the amount of data added to the database server that day.
-
-You can access the new server instance using the original server instance account. However, you will need to change the server name prefix in the account to the new server name.
+5. Go back to the server list page to confirm that the server was successfully restored and that the status is **Running**. The data recovery process might take from a few minutes to several hours, depending on the time point that you choose and the amount of data that was added to the database server that day.
 
 ## **Restore a full backup to a new instance**
 
-MySQL Database on Azure supports restoring a full backup to a new instance. The specific procedure for this is as follows:
+With **MySQL Database on Azure**, you can restore a full backup to a new instance. The specific procedure for this is as follows:
 
-1.	Log in to the [Azure Management Portal](http://manage.windowsazure.cn/) and click on “MYSQL DATABASE ON AZURE” in the services list on the left.
-2.	In the server list, click on the database server you want to restore to enter the server interface, then click on the “Backup” page.
-3.	Select the full backup you want to restore and press the “Restore” button.
+1.	Sign in to the [Azure portal](http://manage.windowsazure.com/), and click **MYSQL DATABASE ON AZURE** in the services list in the left pane.
+2.	In the server list, click the database server that you want to restore to open the server interface, and then click **Backup**.
+3.	Select the full backup that you want to restore, and click the **Restore** button.
 ![Perform a full backup to a new instance][3]
-4.	In the dialogue box that pop up, the “Restore type” is set to “Return to a full backup” by default, the “Selected backup” is automatically set to the full backup selected, and “Restore as” is set to “New service” by default. Enter the name and version of the new service instance. Then press the “Finish” button.
+4.	In the dialogue box that opens, the **Restore type** is set to **Return to a full backup** by default, the **Selected backup** is automatically set to the full backup that you selected, and **Restore as** is set to **New service** by default. Enter the name and version of the new service instance, and then click the **Finish** button.
 ![Perform a full backup to a new instance][4]
-5.	Go back to the server list to confirm that the server was successfully created (the status has changed to “Running”). This process is generally completed within 2 minutes. You can access the new server instance using the original server instance account. However, you will need to change the server name prefix in the account to the new server name.
+5.	Go back to the server list to confirm that the server was successfully created and that the status is **Running**. This process is generally completed within two minutes. You can access the new server instance by using the original server instance account. However, you will need to change the server name prefix in the account to the new server name.
 
 ## **Restore a full backup to the original instance**
 
-MySQL Database on Azure supports restoring a full backup to the original instance. The specific procedure for this is as follows:
+With **MySQL Database on Azure**, you can restore a full backup to the original instance. The specific procedure for this is as follows:
 
-1.	Log in to the [Azure Management Portal](http://manage.windowsazure.cn/) and click on “MYSQL DATABASE ON AZURE” in the services list on the left.
-2.	In the server list, click on the database server you want to restore to enter the server interface, then click on the “Backup” page.
-3.	Select the full backup you want to restore and press the “Restore” button.
-4.	Select “Current service” from the “Restore as” options in the dialogue box that pops up. At the same time, you must confirm that “I understand that restoring the server will take several minutes, and that I will be unable to access the database server during this time.” Then press the “Finish” button.
+1.	Sign in to the [Azure portal](http://manage.windowsazure.com/), and click **MYSQL DATABASE ON AZURE** in the services list in the left pane.
+2.	In the server list, click the database server that you want to restore to open the server interface, then click **Backup**.
+3.	Select the full backup that you want to restore, and click the **Restore** button.
+4.	Select **Current service** from the **Restore as** options in the dialogue box that opens. At the same time, you must confirm that **I understand that restoring the server will take several minutes, and that I will be unable to access the database server during this time.** Click the **Finish** button.
 ![Perform a full backup to the original instance][5]
-5.	Go back to the server list to confirm that the status of the server has changed to “Running”. This indicates that the server was successfully created.
+5.	Go back to the server list to confirm that the status of the server is **Running**. This indicates that the server was successfully restored.
 
 <!--Image references-->
 
