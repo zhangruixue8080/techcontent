@@ -98,7 +98,7 @@ A: The performance version for subordinate instances will not change with that o
 
 Q: I would like to use the master-subordinate replication function, but my database instance is on version 5.5. What should I do?
 
-A: Master-subordinate replication only supports version 5.6. You can manually upgrade the database implementation to version 5.6, and then you use the replicate function.
+A: Master-subordinate replication only supports version 5.6. You can manually upgrade the database implementation to version 5.6 first, and then use the replicate function.
 
 Q: How do I upgrade the database from version 5.5 to version 5.6?
 
