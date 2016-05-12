@@ -5,44 +5,44 @@
 
 
 ## Request access
-The Azure CDN HTTPS acceleration service is only available to paying Azure users.
+The Azure content delivery network (CDN) HTTPS acceleration service is not available if you use an Azure free account.
 
-1. **To apply for access:** Please contact the [Azure technical support team](https://www.azure.cn/support/contact/). You will need to provide the Azure subscription ID that you want to use the HTTPS acceleration service for.
+1. **To apply for access:** Contact the [Azure technical support team](https://www.azure.com/support/contact). You will need to provide the Azure subscription ID that you want to use the HTTPS acceleration service for.
 
 
-2. **Self-service creation:** Once the Azure CDN team receives and approves your access request, they will start the HTTPS acceleration service for the Azure subscription you provided. You can then log into the Azure Management Portal to complete the self-service creation process. Please refer to the instructions for the self-service creation process.
+2. **Self-service creation:** After the Azure CDN team receives and approves your access request, the team will start the HTTPS acceleration service for the Azure subscription that you provided. You can then sign in to the Azure portal to complete the self-service creation process. Refer to the instructions for the self-service creation process.
 
     ![][1]
 
 
-3. **SSL certificate application and configuration:** Once your configuration request is received, the Azure CDN will apply for an SSL certificate on your behalf (see the notes for details of certificate types).
+3. **SSL certificate application and configuration:** After your configuration request is received, the Azure CDN will apply for an SSL certificate on your behalf See the notes at the end of this article for details about certificate types.
     > **Notes**
 
-    > The application and configuration for this certificate takes around ***5 working days***. You will also need to cooperate during the application process, so that the certificate issuer can confirm ownership of the domain name. Details of this confirmation process are given later in this article.
+    > The application and configuration process for this certificate takes around ***five working days***. You will also need to cooperate during the application process so that the certificate issuer can confirm ownership of the domain name. Details about this confirmation process are given later in this article.
 
-4. **When the configuration is finished and takes effect:** Once the configuration process is complete, you can complete the final setup of the CNAME record as you would to create services with other types of acceleration. Finally, you can complete any other associated management and configuration tasks through the unified Azure CDN Management Portal.
+4. **When the configuration is finished and takes effect:** After the configuration process is complete, you can complete the final setup of the canonical name (CNAME) record as you would to create services with other types of acceleration. Finally, you can complete any other associated management and configuration tasks through the unified Azure CDN Management Portal.
 
 
 ## Self-service creation process
-1. Once you have finished creating the HTTPS acceleration type on the Azure Management Portal, press the “Management” button shown in the image below to jump to the Azure CDN Management Portal, from where you can complete the subsequent access procedure.
+1. Once you have finished creating the HTTPS acceleration type on the Azure portal, press the **Management** button shown in the following image to jump to the Azure CDN Management Portal to complete the subsequent access procedure.
 
 	![][2]
 
 	![][3]
 
-2. In the Azure CDN Management Portal, under “Domain name management”, select the HTTPS acceleration domain name that you need to configure, and then press “View HTTPS configuration status”.
+2. In the Azure CDN Management Portal, under **Domain name management**, select the HTTPS acceleration domain name that you need to configure, and then select **View HTTPS configuration status**.
 
 	![][4]
 
-3. You will then be able to see the 5 steps that are required to complete the whole HTTPS access configuration process. This step (Step 2: “Submit certificate application”) requires you to provide the following additional information as prompted by the interface:
+3. You will then be able to see the five steps that are required to complete the whole HTTPS access configuration process. In Step 2: “Submit certificate application,” the interface prompts you to provide the following additional information:
 
-	**Estimated bandwidth**: The estimated peak bandwidth required.
+	**Estimated bandwidth**: Specify the estimated peak bandwidth that's required.
 
-	**Estimated average file size**: The estimated average size of the files for which cache acceleration is required.
+	**Estimated average file size**: Specify the estimated average size of the files for which cache acceleration is required.
 
 	**Acceleration demand time**: Specify whether the demand for HTTPS acceleration is long term or short term.
 
-	**Access port for client access to CDN node**: Specify how the client you wish to enable will access the CDN node.
+	**Access port for client access to CDN node**: Specify how the client that you want to enable will access the CDN node.
 
 		1) Only enable HTTPS access (HTTP access is forbidden)
 
@@ -58,35 +58,35 @@ The Azure CDN HTTPS acceleration service is only available to paying Azure users
 
 		3) Use both HTTP and HTTPS to return to source
 
-	**Test URL**: Enter a URL which can subsequently be used to check access. You must ensure that this URL on the source station is accessible.
+	**Test URL**: Enter a URL that can be used subsequently to check access. You must make sure that this URL on the source station is accessible.
 
-4. Once you have filled out all the relevant information for the previous step, press the “Confirm” button to complete the operation. To view the HTTPS configuration status again later:
+4. After you have filled out all the relevant information for the previous step, select the **Confirm** button to complete the operation. To view the HTTPS configuration status again later:
 
 	![][5]
 
-	Once the Azure CDN service provider’s back end confirms all the information submitted and also submitted the official certificate application to the certificate issuer, you can proceed to the interface for Step 3 as shown below:
+	After the Azure CDN service provider’s backend confirms all the submitted information and has also submitted the official certificate application to the certificate issuer, you can proceed to the interface for Step 3 as shown in the following image:
 
 	![][6]
 
-5. The next step is the most critical step in the certificate application process, during which the user needs to confirm ownership of the domain name. As the Azure CDN service provider submits the certificate application to the certificate issuer on the user’s behalf, the certificate issuer will confirm domain name ownership with the end user during this process. In order to confirm, **the domain name owner must complete final confirmation in the manner specified in the email sent by the domain name issuer**.
+5. The next step, which is the most critical step in the certificate application process, is when the user needs to confirm ownership of the domain name. As the Azure CDN service provider submits the certificate application to the certificate issuer on the user’s behalf, the certificate issuer will confirm domain name ownership with the user during this process. In order to confirm ownership, **the domain name owner must complete final confirmation in the manner that's specified in the email sent by the domain name issuer**.
 
-	There are two methods of receiving the email:
+	There are two methods to receive the email:
 
-	1) **Default method**: Once the certificate issuer receives the request, the domain name confirmation email will be sent by default to the email address associated with the acceleration domain name (see the screenshot above for details) as soon as possible. If you choose to obtain the confirmation email by this method, you can go directly to the next step by clicking on the “Confirm” button.
+	**Default method**: After the certificate issuer receives the request, the certificate issuer will send the domain name confirmation email by default to the email address that's associated with the acceleration domain name as soon as possible. See the previous image for details. If you choose to obtain the confirmation email by this method, you can select the **Confirm** button to go directly to the next step.
 		
 		
 
-	2) **DNS TXT method**: If you are unable to sign in to the email account above to complete confirmation of the domain name ownership, you can complete the confirmation process **by creating a DNS TXT record** as shown in the image below. This method may take a little longer to complete.
+	**DNS TXT method**: If you are unable to sign in to the email account for the default method to complete confirmation of the domain name ownership, you can complete the confirmation process **by creating a DNS TXT record** as shown in the following image. This method may take a little longer to complete.
 
 	![][8]
 
-		Once you have created the DNS TXT log, you can check it using the following commands in the Windows operating system : nslookup -qt=txt www.cdn.test.com
+		After you have created the DNS TXT log, you can check it by using the following commands at a Windows command prompt: nslookup -qt=txt www.cdn.test.com
 
 	![][9]
 
-		You can then sign in to the email account specified in the DNS TXT log, just as you would for the default method, in order to complete the subsequent domain name ownership verification process.
+		You can then sign in to the email account that's specified in the DNS TXT log, just as you would for the default method, in order to complete the subsequent domain name ownership verification process.
 
-		Once you have successfully created the corresponding DNS TXT log in this step, click on the **Confirm** button for this step and proceed to the next step.
+		After you have successfully created the corresponding DNS TXT log in this step, select the **Confirm** button and proceed to the next step.
 
 	![][10]
 
@@ -94,11 +94,11 @@ The Azure CDN HTTPS acceleration service is only available to paying Azure users
 
 6. The user can complete the domain name ownership verification process by accessing the email.
 	
-	Once the Azure CDN back end confirms which method of receiving the confirmation email you have chosen, you will see the following interface:
+	After the Azure CDN backend confirms the method that you have chosen to receive the confirmation email, you will see the following interface:
 
 	![][11]
 
-	At this point, you can proceed to the corresponding email account to finish verifying domain name ownership.
+	At this point, you can proceed to the corresponding email account to finish the verification of domain name ownership.
 
 		Email subject: Please validate ownership of your domain www.cdn.test.com -- DigiCert order 00123456
 
@@ -106,40 +106,40 @@ The Azure CDN HTTPS acceleration service is only available to paying Azure users
 
 	![][7]
 
-		You need to click on the confirmation link in the email to complete confirmation of domain name ownership.
+		You need to select the confirmation link in the email to complete confirmation of domain name ownership.
 
-	After this, you need to click on “Complete” in the interface for Step 4 to finally complete confirmation of the entire domain name.
+	After this, you need to select **Complete** in the interface for Step 4 to finally complete confirmation of the entire domain name.
 
-7. Next, the entire configuration process will move into the final step, as shown in the image below:
+7. Next, the entire configuration process will move into the final step, as shown in the following image:
 
 	![][12]
 
-	In this step, after the Azure CDN back end receives the corresponding certificate from the certificate issuer, it will take a certain amount of time to complete the final configuration tasks. After this, you will see the final completion interface:
+	In this step, after the Azure CDN backend receives the corresponding certificate from the certificate issuer, it will take a certain amount of time to complete the final configuration tasks. After this, you will see the final completion interface:
 
 	![][13]
 
-	Lastly, you can complete the final CNAME configuration process through your domain name service provider just as you would to create accelerated domain names with other acceleration types; direct the user-defined accelerated domain name to the CDN domain name provided by the Azure CDN platform, which should have an extension similar to **.mschcdn.com**, in order to enable the whole configuration to take effect.
+	Finally, you can complete the CNAME configuration process through your domain name service provider just as you would to create accelerated domain names with other acceleration types. You direct the user-defined accelerated domain name to the CDN domain name that's provided by the Azure CDN platform, which should have an extension similar to **.mschcdn.com**. This completes the configuration.
 
 
 
 
 ## Notes
 
-### About the SSL certificates used
-The SSL certificate type used is a SAN multi-domain name certificate (SAN/UCC SSL):
+### About the SSL certificates
+The SSL certificate type that is used is a SAN multi-domain name certificate (SAN/UCC SSL):
 
-Subject Alternative Name (SAN) certificates are also known as Unified Communication Certificates (UCC). SAN SSL certificates allow you to add multiple “domain names” or “server” names that need protection within the same certificate. This feature provides a huge amount of flexibility, as it lets you create an SSL certificate that is not only easy to use and install, but also more secure than wildcard SSL certificates, and perfectly suited to your server security requirements.
+Subject alternative name (SAN) certificates are also known as unified communication certificates (UCC). With SAN SSL certificates, you can add multiple domain names or server names that need protection within the same certificate. This feature provides a huge amount of flexibility. You can create an SSL certificate that is not only easy to use and install, but it is also more secure than wildcard SSL certificates. The certificate is also perfectly suited to your server security requirements.
 
-Certificate issuers: <https://www.digicert.com/>
+For more information about certificate issuers, see the [digicert website](https://www.digicert.com).
 	
 The Azure CDN will apply for, install, and maintain the SSL certificate on your behalf.
 
 ### Information about charges
-Information about charges for CDN HTTPS acceleration nodes, as for other CDN acceleration nodes, can be viewed through the corresponding [Azure account portal](https://account.windowsazure.cn) and is summarized below the corresponding Azure subscription.
+Information about charges for CDN HTTPS acceleration nodes and other CDN acceleration nodes, can be viewed through the corresponding [Azure account portal](https://account.windowsazure.com) and is summarized below the corresponding Azure subscription.
 
 
 ### CDN HTTPS pricing
-The Azure CDN HTTPS acceleration service is currently included in the premium version. See the [official Azure website](https://www.azure.cn/home/features/cdn/#price), for details of pricing and charges.
+The Azure CDN HTTPS acceleration service is currently included in the premium version. See the [official Azure website](https://www.azure.com/home/features/cdn/#price) for details about pricing and charges.
 
 
 <!--Image references-->
