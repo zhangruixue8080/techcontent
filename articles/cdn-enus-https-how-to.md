@@ -7,7 +7,7 @@
 ## Request access
 The Azure content delivery network (CDN) HTTPS acceleration service is not available if you use an Azure free account.
 
-1. **To apply for access:** Contact the [Azure technical support team](https://www.azure.com/support/contact). You will need to provide the Azure subscription ID that you want to use the HTTPS acceleration service for.
+1. **To apply for access:** Please contact the [Azure technical support team](https://www.azure.com/support/contact). You will need to provide the Azure subscription ID that you want to use the HTTPS acceleration service for.
 
 
 2. **Self-service creation:** After the Azure CDN team receives and approves your access request, the team will start the HTTPS acceleration service for the Azure subscription that you provided. You can then sign in to the Azure portal to complete the self-service creation process. Refer to the instructions for the self-service creation process.
@@ -15,7 +15,7 @@ The Azure content delivery network (CDN) HTTPS acceleration service is not avail
     ![][1]
 
 
-3. **SSL certificate application and configuration:** After your configuration request is received, the Azure CDN will apply for an SSL certificate on your behalf See the notes at the end of this article for details about certificate types.
+3. **SSL certificate application and configuration:** After your configuration request is received, the Azure CDN will apply for an SSL certificate on your behalf. See the notes at the end of this article for details about certificate types.
     > **Notes**
 
     > The application and configuration process for this certificate takes around ***five working days***. You will also need to cooperate during the application process so that the certificate issuer can confirm ownership of the domain name. Details about this confirmation process are given later in this article.
@@ -24,7 +24,7 @@ The Azure content delivery network (CDN) HTTPS acceleration service is not avail
 
 
 ## Self-service creation process
-1. Once you have finished creating the HTTPS acceleration type on the Azure portal, press the **Management** button shown in the following image to jump to the Azure CDN Management Portal to complete the subsequent access procedure.
+1. Once you have finished creating the HTTPS acceleration type on the Azure Management Portal, press the **Management** button shown in the following image to jump to the Azure CDN Management Portal to complete the subsequent access procedure.
 
 	![][2]
 
@@ -44,23 +44,23 @@ The Azure content delivery network (CDN) HTTPS acceleration service is not avail
 
 	**Access port for client access to CDN node**: Specify how the client that you want to enable will access the CDN node.
 
-		1) Only enable HTTPS access (HTTP access is forbidden)
+	1) Only enable HTTPS access (HTTP access is forbidden)
 
-		2) Enable HTTP and HTTPS access
+	2) Enable HTTP and HTTPS access
 
-		3) Always redirect HTTP access to HTTPS access
+	3) Always redirect HTTP access to HTTPS access
 
 	**Return-to-source port for CDN node access to the source station**: Specify how the CDN node can achieve return-to-source access.
 
-		1) Only use HTTP to return to source
+	1) Only use HTTP to return to source
 
-		2) Only use HTTPS to return to source
+	2) Only use HTTPS to return to source
 
-		3) Use both HTTP and HTTPS to return to source
+	3) Use both HTTP and HTTPS to return to source
 
 	**Test URL**: Enter a URL that can be used subsequently to check access. You must make sure that this URL on the source station is accessible.
 
-4. After you have filled out all the relevant information for the previous step, select the **Confirm** button to complete the operation. To view the HTTPS configuration status again later:
+4. After you have filled out all the relevant information for the previous step, press the **Confirm** button to complete the operation. To view the HTTPS configuration status again later:
 
 	![][5]
 
@@ -72,7 +72,7 @@ The Azure content delivery network (CDN) HTTPS acceleration service is not avail
 
 	There are two methods to receive the email:
 
-	**Default method**: After the certificate issuer receives the request, the certificate issuer will send the domain name confirmation email by default to the email address that's associated with the acceleration domain name as soon as possible. See the previous image for details. If you choose to obtain the confirmation email by this method, you can select the **Confirm** button to go directly to the next step.
+	**Default method**: After the certificate issuer receives the request, the certificate issuer will send the domain name confirmation email by default to the email address that's associated with the acceleration domain name as soon as possible. See the previous image for details. If you choose to obtain the confirmation email by this method, you can press the **Confirm** button to go directly to the next step.
 		
 		
 
@@ -80,13 +80,13 @@ The Azure content delivery network (CDN) HTTPS acceleration service is not avail
 
 	![][8]
 
-		After you have created the DNS TXT log, you can check it by using the following commands at a Windows command prompt: nslookup -qt=txt www.cdn.test.com
+	After you have created the DNS TXT log, you can check it by using the following commands at a Windows command prompt: nslookup -qt=txt www.cdn.test.com
 
 	![][9]
 
-		You can then sign in to the email account that's specified in the DNS TXT log, just as you would for the default method, in order to complete the subsequent domain name ownership verification process.
+	You can then sign in to the email account that's specified in the DNS TXT log, just as you would for the default method, in order to complete the subsequent domain name ownership verification process.
 
-		After you have successfully created the corresponding DNS TXT log in this step, select the **Confirm** button and proceed to the next step.
+	After you have successfully created the corresponding DNS TXT log in this step, press the **Confirm** button and proceed to the next step.
 
 	![][10]
 
@@ -100,15 +100,15 @@ The Azure content delivery network (CDN) HTTPS acceleration service is not avail
 
 	At this point, you can proceed to the corresponding email account to finish the verification of domain name ownership.
 
-		Email subject: Please validate ownership of your domain www.cdn.test.com -- DigiCert order 00123456
+	Email subject: Please validate ownership of your domain www.cdn.test.com -- DigiCert order 00123456
 
-		Email body:
+	Email body:
 
 	![][7]
 
-		You need to select the confirmation link in the email to complete confirmation of domain name ownership.
+	You need to click on the confirmation link in the email to complete confirmation of domain name ownership.
 
-	After this, you need to select **Complete** in the interface for Step 4 to finally complete confirmation of the entire domain name.
+	After this, you need to click on **Complete** in the interface for Step 4 to finally complete confirmation of the entire domain name.
 
 7. Next, the entire configuration process will move into the final step, as shown in the following image:
 
