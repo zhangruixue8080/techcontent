@@ -10,7 +10,7 @@ The Azure content delivery network (CDN) HTTPS acceleration service is not avail
 1. **To apply for access:** Please contact the [Azure technical support team](https://www.azure.com/support/contact). You will need to provide the Azure subscription ID that you want to use the HTTPS acceleration service for.
 
 
-2. **Self-service creation:** After the Azure CDN team receives and approves your access request, the team will start the HTTPS acceleration service for the Azure subscription that you provided. You can then sign in to the Azure portal to complete the self-service creation process. Refer to the instructions for the self-service creation process.
+2. **Self-service creation:** After the Azure CDN team receives and approves your access request, the team will start the HTTPS acceleration service for the Azure subscription that you provided. You can then sign in to the Azure Management Portal to complete the self-service creation process. Refer to the instructions for the self-service creation process.
 
     ![][1]
 
@@ -130,7 +130,7 @@ The SSL certificate type that is used is a SAN multi-domain name certificate (SA
 
 Subject alternative name (SAN) certificates are also known as unified communication certificates (UCC). With SAN SSL certificates, you can add multiple domain names or server names that need protection within the same certificate. This feature provides a huge amount of flexibility. You can create an SSL certificate that is not only easy to use and install, but it is also more secure than wildcard SSL certificates. The certificate is also perfectly suited to your server security requirements.
 
-For more information about certificate issuers, see the [digicert website](https://www.digicert.com).
+For more information about certificate issuers, see the [Digicert website](https://www.digicert.com).
 	
 The Azure CDN will apply for, install, and maintain the SSL certificate on your behalf.
 
