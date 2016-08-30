@@ -158,7 +158,7 @@
   <p>从你选择的平台管理你的 Azure 资源。</p>
 </div>
 <div>
-    <h3>存储资源管理器</h3>
+    <h3>存储资源管理器test</h3>
     <ul>
       <li><a href="http://go.microsoft.com/fwlink/?linkid=698844&clcid=0x804">Windows 安装</a></li>
       <li><a href="http://go.microsoft.com/fwlink/?linkid=698845&clcid=0x804">Mac 安装</a></li>
