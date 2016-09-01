@@ -37,7 +37,7 @@
 
 ![HDInsight HBase 复制虚拟网络示意图][img-vnet-diagram]
 
-##<a id="prerequisites"></a>先决条件
+## <a id="prerequisites"></a>先决条件
 在开始阅读本教程前，你必须具有：
 
 - **一个 Azure 订阅**。Azure 是基于订阅的平台。有关获取订阅的详细信息，请参阅 [购买选项][azure-purchase-options]、[会员优惠][azure-member-offers] 或 [免费试用][azure-trial]。
@@ -53,7 +53,8 @@
 
 	在运行 PowerShell 脚本之前，请确保你已使用以下 cmdlet 连接到 Azure 订阅：
 
-		Add-AzureAccount -Environment AzureChinaCloud
+		Clear-AzureProfile
+		Import-AzurePublishSettingsFile -PublishSettingsFile path/to/<subscription name>-<date>-credentials.publishsettings
 
 	如果你有多个 Azure 订阅，请使用以下 cmdlet 来设置当前订阅：
 
@@ -90,7 +91,8 @@ Azure 经典管理门户不支持使用自定义配置选项设置 HDInsight 群
 		$blobContainerName = $hbaseClusterName.ToLower()  #Use the cluster name as the default container name.
 		
 		#connect to your Azure subscription
-		Add-AzureAccount -Environment AzureChinaCloud 
+		Clear-AzureProfile
+		Import-AzurePublishSettingsFile -PublishSettingsFile path/to/<subscription name>-<date>-credentials.publishsettings
 		Select-AzureSubscription $azureSubscriptionName
 		
 		# Create a storage account used by the HBase cluster
@@ -140,7 +142,8 @@ Azure 经典管理门户不支持使用自定义配置选项设置 HDInsight 群
 
 	由于你已连接到 Azure 帐户，因此不再需要运行以下 cmdlet：
 
-		Add-AzureAccount -Environment AzureChinaCloud 
+		Clear-AzureProfile
+		Import-AzurePublishSettingsFile -PublishSettingsFile path/to/<subscription name>-<date>-credentials.publishsettings
 		Select-AzureSubscription $azureSubscriptionName
 
 

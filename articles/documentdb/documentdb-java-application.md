@@ -35,7 +35,7 @@
 ##<a id="Prerequisites"></a>此 Java Web 应用程序教程的先决条件
 在开始本应用程序开发教程前，你必须具有：
 
-- 有效的 Azure 帐户。如果你没有帐户，只需花费几分钟就能创建一个免费试用帐户。有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/free-trial/)。
+- 有效的 Azure 帐户。如果你没有帐户，只需花费几分钟就能创建一个试用帐户。有关详细信息，请参阅 [Azure 试用](/pricing/1rmb-trial-full/?form-type=identityauth)。
 - [Java 开发工具包 (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。
 - [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)。
 - [已启用 Java 运行时环境（例如 Tomcat 或 Jetty）的 Azure 网站。](/documentation/articles/web-sites-java-get-started/)
@@ -760,7 +760,7 @@ GitHub 上的 [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) 
 3. 在 Eclipse 中，在“文件”菜单上单击“导入”。
 4. 在“导入”窗口中，依次单击“Git”、“来自 Git 的项目”和“下一步”。
 5. 在“选择存储库源”屏幕上，单击“克隆 URI”。
-6. 在“源 Git 存储库”屏幕上，在“URI”框中输入 https://github.com/Azure-Samples/documentdb-java-todo-app.git，然后单击“下一步”。
+6. 在“源 Git 存储库”屏幕上，在“URI”框中输入 https://github.com/Azure-Samples/documentdb-java-todo-app.git ，然后单击“下一步”。
 7. 在“分支选择”屏幕上，确保已选择“master”，然后单击“下一步”。
 8. 在“本地目标”屏幕上，单击“浏览”选择要将存储库复制到的文件夹，然后单击“下一步”。
 9. 在“选择要用于导入项目的向导”屏幕上，确保已选择“导入现有项目”，然后单击“下一步”。

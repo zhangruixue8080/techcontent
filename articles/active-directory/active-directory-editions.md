@@ -1,16 +1,16 @@
 <properties
 	pageTitle="Azure Active Directory 版本 | Azure"
 	description="一个介绍 Azure Active Directory 的免费版和付费版选项的主题。Azure Active Directory Basic 是免费版，而 Azure Active Directory Premium 是付费版。"
-	services="active-directory" 
-	documentationCenter="" 
+	services="active-directory"
+	documentationCenter=""
 	authors="MarkusVi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags 
 	ms.service="active-directory" 
-	ms.date="06/07/2016"
-	wacn.date="07/26/2016" />
+	ms.date="07/08/2016"
+	wacn.date="08/22/2016" />
 
 # Azure Active Directory 版本
 
@@ -57,48 +57,9 @@ Office 365 订阅包括以下比较表中所述的其他 Azure Active Directory 
 
 - [Connect（将本地目录扩展到 Azure Active Directory 的同步引擎）](#connect-sync-engine-that-extends-on-premises-directories-to-azure-active-directory)
 
-- [安全性/使用情况报告](#securityusage-reports)
-
-
-
-**Basic 功能**
-
-- [基于组的访问管理/预配](#group-based-access-managementprovisioning)
-
-- [云用户的自助密码重置](#self-service-password-reset-for-cloud-users)
-
-- [公司品牌（登录页/访问面板自定义）](#company-branding-logon-pagesaccess-panel-customization)
-
-- [应用程序代理](#application-proxy)
-
-- [SLA 99.9%](#sla-999)
-
-
-**Premium 功能**
-
-- [自助组和应用管理/自助应用程序添加/动态组](#self-service-group-and-app-managementself-service-application-additions-dynamic-groups)
-
-- [通过本地写回实现自助密码重置/更改/解锁](#self-service-password-resetchangeunlock-with-on-premises-write-back)
-
-- [Multi-Factor Authentication（云和本地（MFA 服务器））](#multi-factor-authentication-cloud-and-on-premises-mfa-server)
-
-- [MIM CAL + MIM 服务器](#mim-cal-mim-server)
-
-- [Cloud App Discovery](#cloud-app-discovery)
-
-- [Connect Health](#connect-health)
-
-- [组帐户的自动密码滚动更新](#automatic-password-rollover-for-group-accounts)
-
-
-**Azure Active Directory Join – 仅适用于 Windows 10 的相关功能**
-
-- [让设备加入 Azure AD、Desktop SSO、Microsoft Passport for Azure AD 和 Administrator Bitlocker 恢复](#join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery)
-
-- [MDM 自动注册、自助 Bitlocker 恢复、其他本地管理员通过 Azure AD Join 加入 Windows 10 设备](#mdm-auto-enrolment-self-service-bitlocker-recovery-additional-local-administrators-to-windows-10-devices-via-azure-ad-join)
 
 ## 常用功能
-#### 目录对象 
+#### <a name="directory-objects"></a>目录对象 
 
 **类型：**常用功能
 
@@ -113,7 +74,7 @@ Office 365 订阅包括以下比较表中所述的其他 Azure Active Directory 
 
 
 
-#### 用户/组管理（添加/更新/删除）/基于用户的预配、设备注册
+#### <a name="usergroup-management-addupdatedelete-user-based-provisioning-device-registration"></a>用户/组管理（添加/更新/删除）/基于用户的预配、设备注册
 
 **类型：**常用功能
 
@@ -132,7 +93,7 @@ Office 365 订阅包括以下比较表中所述的其他 Azure Active Directory 
 
 
 
-#### 单一登录 (SSO)
+#### <a name="single-sign-on-sso"></a>单一登录 (SSO)
 
 **类型：**常用功能
 
@@ -141,11 +102,11 @@ Office 365 订阅包括以下比较表中所述的其他 Azure Active Directory 
 
 | 免费版| 基本版| Premium Edition| 仅限 Office 365 应用 |
 | :-: | :-: | :-: | :-: |
-| 每个用户 10 个应用 [1]（预先集成的 SaaS 和开发人员集成的应用）| 每个用户 10 个应用 [1]（免费层 + 应用程序代理应用） | 无限制 [2]（免费层、基本层 + 自助应用集成模板）| 每个用户 10 个应用 [1]（预先集成的 SaaS 和开发人员集成的应用）|
+| 每个用户 10 个应用 (1) | 每个用户 10 个应用 (1) | 无限制 (2) | 每个用户 10 个应用 (1)|
 
 [1] 借助 Azure AD Free 和 Azure AD Basic，已获权访问 SaaS 应用的最终用户可以在其访问面板中看到最多 10 个应用并获得对这些应用的 SSO 访问权限。管理员可配置 SSO，并为使用 Free 和 Basic 的用户分配访问所需数量的 SaaS 应用的权限，但最终用户在其访问面板中一次只能看到 10 个应用。
 
-[2] 通过使用应用程序库菜单中提供的模板，自助集成支持 SAML、SCIM 或基于窗体的身份验证的任何应用程序。
+
 
 **更多详细信息：**
 
@@ -153,7 +114,7 @@ Office 365 订阅包括以下比较表中所述的其他 Azure Active Directory 
 
 
 
-#### 云用户的自助密码更改
+####  <a name="self-service-password-change-for-cloud-users"></a>云用户的自助密码更改
 
 **类型：**常用功能
 
@@ -170,7 +131,7 @@ Office 365 订阅包括以下比较表中所述的其他 Azure Active Directory 
 
 
 
-#### Connect（将本地目录扩展到 Azure Active Directory 的同步引擎） 
+#### <a name="connect-sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Connect（将本地目录扩展到 Azure Active Directory 的同步引擎） 
 
 **类型：**常用功能
 
@@ -186,146 +147,12 @@ Office 365 订阅包括以下比较表中所述的其他 Azure Active Directory 
 - [将本地标识与 Azure Active Directory 集成](/documentation/articles/active-directory-aadconnect/)
 
 
-## Premium 和 Basic 功能
-#### 基于组的访问管理/预配
-
-**类型：**基本功能
-
-
-**可用性：**
-
-| 免费版| 基本版| Premium Edition| 仅限 Office 365 应用 |
-| :-: | :-: | :-: | :-: |
-| | ![勾选标记][12]| ![勾选标记][12]| |
-
-<br>
-<hr>
-#### 云用户的自助密码重置
-
-**类型：**基本功能
-
-
-**可用性：**
-
-| 免费版| 基本版| Premium Edition| 仅限 Office 365 应用 |
-| :-: | :-: | :-: | :-: |
-| | ![勾选标记][12]| ![勾选标记][12]| ![勾选标记][12]|
-
-**更多详细信息：**
-
-- [用户和管理员的 Azure AD 密码重置](/documentation/articles/active-directory-passwords/)
-
-<br>
-<hr>
-#### 公司品牌（登录页/访问面板自定义）
-
-**类型：**Basic 功能
-
-
-**可用性：**
-
-| 免费版| 基本版| Premium Edition| 仅限 Office 365 应用 |
-| :-: | :-: | :-: | :-: |
-| | ![勾选标记][12]| ![勾选标记][12]| ![勾选标记][12]|
-
-**更多详细信息：**
-
-- [向“登录”和“访问面板”页添加公司品牌](/documentation/articles/active-directory-add-company-branding/)
-
-<br>
-<hr>
-#### 应用程序代理
-
-**类型：**基本功能
-
-
-**可用性：**
-
-| 免费版| 基本版| Premium Edition| 仅限 Office 365 应用 |
-| :-: | :-: | :-: | :-: |
-| | ![勾选标记][12]| ![勾选标记][12]| |
-<br>
-<hr>
-#### SLA 99.9%
-
-**类型：**基本功能
-
-
-**可用性：**
-
-| 免费版| 基本版| Premium Edition| 仅限 Office 365 应用 |
-| :-: | :-: | :-: | :-: |
-| | ![勾选标记][12]| ![勾选标记][12]| ![勾选标记][12]|
-
-**更多详细信息：**
-
-- [服务级别协议](/support/legal/sla/)
-
-<br>
-<hr>
-
-## Premium 功能
-#### 自助组和应用管理/自助应用程序添加/动态组
-
-**类型：**高级功能
-
-
-**可用性：**
-
-| 免费版| 基本版| Premium Edition| 仅限 Office 365 应用 |
-| :-: | :-: | :-: | :-: |
-| | | ![勾选标记][12]| |
-
-
-
-<br>
-         
-#### 通过本地写回实现自助密码重置/更改/解锁
-
-**类型：**高级功能
-
-
-**可用性：**
-
-| 免费版| 基本版| Premium Edition| 仅限 Office 365 应用 |
-| :-: | :-: | :-: | :-: |
-| | | ![勾选标记][12]| |
-
-
-
-<br>
-
-#### Multi-Factor Authentication（云和本地（MFA 服务器））
-
-**类型：**高级功能
-
-
-**可用性：**
-
-| 免费版| 基本版| Premium Edition| 仅限 Office 365 应用 |
-| :-: | :-: | :-: | :-: |
-| | | ![勾选标记][12]| 对于 Office 365 应用限制为云|
-
-**更多详细信息：**
-
-- [什么是 Azure Multi-Factor Authentication？](/documentation/articles/multi-factor-authentication/)
-
-<br>
-<hr>
-#### MIM CAL + MIM 服务器 
-
-Microsoft 标识管理器服务器软件权限随 Windows Server 许可证（任意版本）一起授予。由于 Microsoft 标识管理器在 Windows Server 操作系统上运行，只要服务器正在运行有效的、经过许可的 Windows Server 副本，就能在该服务器上安装和使用 Microsoft 标识管理器。Microsoft 标识管理器服务器不需要其他单独的许可证。
-
-
-
-
 ## 后续步骤
 
-- [Azure Active Directory 高级版入门](/documentation/articles/active-directory-get-started-premium/)
 - [向“登录”和“访问面板”页添加公司品牌](/documentation/articles/active-directory-add-company-branding/)
 
 
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0718_2016-->
+<!---HONumber=Mooncake_0808_2016-->

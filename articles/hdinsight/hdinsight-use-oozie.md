@@ -48,7 +48,7 @@ Apache Oozie 是一个管理 Hadoop 作业的工作流/协调系统。它与 Had
 
 > [AZURE.NOTE]有关在 HDInsight 群集上支持的 Oozie 版本，请参阅 [HDInsight 提供的 Hadoop 群集版本有哪些新增功能？][hdinsight-versions]。
 
-###<a name="prerequisites"></a>先决条件
+### <a name="prerequisites"></a>先决条件
 
 在开始阅读本教程前，你必须具有：
 
@@ -194,7 +194,8 @@ HDInsight 使用 Azure 存储空间中的 Blob 来存储数据。有关详细信
 1. 打开 Windows PowerShell ISE。（在 Windows 8 的“开始”屏幕上键入 **PowerShell_ISE**，然后单击“Windows PowerShell ISE”。有关详细信息，请参阅[在 Windows 8 和 Windows 上启动 Windows PowerShell][powershell-start]）。
 2. 在底部窗格中，运行以下命令以连接到 Azure 订阅：
 
-		Add-AzureAccount -Environment AzureChinaCloud
+		Clear-AzureProfile
+		Import-AzurePublishSettingsFile -PublishSettingsFile path/to/<subscription name>-<date>-credentials.publishsettings
 
 	系统将提示你输入 Azure 帐户凭据。这种添加订阅连接的方法会超时，12 个小时之后，你将需要再次运行该 cmdlet。
 

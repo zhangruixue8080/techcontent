@@ -19,7 +19,7 @@
 
 本文档提供使用 Azure PowerShell 在 HDInsight 上的 Hadoop 群集中运行 MapReduce 作业的示例。
 
-##<a id="prereq"></a>先决条件
+## <a id="prereq"></a>先决条件
 
 若要完成本文中的步骤，你将需要：
 
@@ -29,13 +29,13 @@
 
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-##<a id="powershell"></a>使用 Azure PowerShell 运行 MapReduce 作业
+## <a id="powershell"></a>使用 Azure PowerShell 运行 MapReduce 作业
 
 Azure PowerShell 提供 *cmdlet*，可让你在 HDInsight 上远程运行 MapReduce 作业。从内部来讲，完成该操作的方法是使用 REST 调用 HDInsight 群集上运行的 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat)（前称 Templeton）。
 
 在远程 HDInsight 群集上运行 MapReduce 作业时，将使用以下 Cmdlet。
 
-* **Add-AzureAccount**：向 Azure 订阅进行 Azure PowerShell 身份验证
+* **Import-AzurePublishSettingsFile**：向 Azure 订阅进行 Azure PowerShell 身份验证
 
 [AZURE.INCLUDE [automation-azurechinacloud-environment-parameter](../../includes/automation-azurechinacloud-environment-parameter.md)]
 
@@ -56,7 +56,8 @@ Azure PowerShell 提供 *cmdlet*，可让你在 HDInsight 上远程运行 MapRed
 		$sub = Get-AzureSubscription -ErrorAction SilentlyContinue
 		if(-not($sub))
 		{
-		    Add-AzureAccount -Environment AzureChinaCloud
+			Clear-AzureProfile
+			Import-AzurePublishSettingsFile -PublishSettingsFile path/to/<subscription name>-<date>-credentials.publishsettings
 		}
 
 		#Specify the cluster name
@@ -123,7 +124,8 @@ MapReduce 作业已将操作结果存储到 Azure Blob 存储（位于指定为�
 		$sub = Get-AzureSubscription -ErrorAction SilentlyContinue
 		if(-not($sub))
 		{
-		    Add-AzureAccount -Environment AzureChinaCloud
+			Clear-AzureProfile
+			Import-AzurePublishSettingsFile -PublishSettingsFile path/to/<subscription name>-<date>-credentials.publishsettings
 		}
 
 		#Specify the cluster name
@@ -150,7 +152,7 @@ MapReduce 作业已将操作结果存储到 Azure Blob 存储（位于指定为�
 
 > [AZURE.NOTE]MapReduce 作业的输出文件是固定不变的。因此，如果你重新运行此示例，将需要更改输出文件的名称。
 
-##<a id="troubleshooting"></a>故障排除
+## <a id="troubleshooting"></a>故障排除
 
 如果在作业完成时未返回任何信息，则可能表示处理期间发生错误。若要查看此作业的错误信息，请将以下命令添加到 **mapreducejob.ps1** 文件的末尾，保存，然后重新运行该文件。
 
@@ -160,11 +162,11 @@ MapReduce 作业已将操作结果存储到 Azure Blob 存储（位于指定为�
 
 在运行作业时，这将返回写入到服务器上的 STDERR 的信息，它可帮助确定该作业失败的原因。
 
-##<a id="summary"></a>摘要
+## <a id="summary"></a>摘要
 
 如你所见，Azure PowerShell 提供了简单的方法让你在 HDInsight 群集上运行 MapReduce 作业、监视作业状态，以及检索输出。
 
-##<a id="nextsteps"></a>后续步骤
+## <a id="nextsteps"></a>后续步骤
 
 有关 HDInsight 中的 MapReduce 作业的一般信息：
 

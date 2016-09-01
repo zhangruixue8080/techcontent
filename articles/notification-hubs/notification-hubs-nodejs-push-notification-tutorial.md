@@ -18,7 +18,7 @@
 
 ##概述
 
-> [AZURE.IMPORTANT] 若要完成本教程，你必须有一个有效的 Azure 帐户。如果你没有帐户，只需花费几分钟就能创建一个免费试用帐户。有关详细信息，请参阅 [Azure 试用](/pricing/free-trial/)。
+> [AZURE.IMPORTANT] 若要完成本教程，你必须有一个有效的 Azure 帐户。如果你没有帐户，只需花费几分钟就能创建一个免费试用帐户。有关详细信息，请参阅 [Azure 试用](/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 本指南将演示如何借助 Azure 通知中心，直接从 Node.js 应用程序发送推送通知。
 
@@ -65,19 +65,11 @@ Azure 通知中心提供用于向移动设备发送推送通知的易于使用�
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
-可通过执行以下步骤从 [Azure 门户]获取连接 **connectionstring** 值：
+可从 [Azure 门户]获取连接 **connectionstring** 值。
 
-1. 在左侧导航窗格中，单击“浏览”。
 
-2. 选择“通知中心”，然后找到要用于示例的中心。如果在创建新通知中心时需要获得帮助，可以参阅 [Windows 应用商店入门教程](/documentation/articles/notification-hubs-windows-store-dotnet-get-started-wns-push-notification)。
 
-3. 选择“设置”。
-
-4. 单击“访问策略”。你会看到共享连接字符串和完全访问连接字符串。
-
-![Azure 门户 — 通知中心](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
-
-> [AZURE.NOTE] 还可以使用 [Azure PowerShell](/documentation/articles/powershell-install-configure) 提供的 **Get-AzureSbNamespace** cmdlet 或者在 [Azure 命令行接口 (Azure CLI)](/documentation/articles/xplat-cli-install) 中使用 **azure sb namespace show** 命令检索连接字符串。
+> [AZURE.NOTE] 还可以使用 [Azure PowerShell](/documentation/articles/powershell-install-configure/) 提供的 **Get-AzureSbNamespace** cmdlet 或者在 [Azure 命令行接口 (Azure CLI)](/documentation/articles/xplat-cli-install) 中使用 **azure sb namespace show** 命令检索连接字符串。
 
 ##一般体系结构
 
@@ -175,7 +167,7 @@ Azure 通知中心提供用于向移动设备发送推送通知的易于使用�
 	  }
 	});
 
-## 后续步骤
+## <a name="Next_Steps"></a>后续步骤
 
 使用上述示例代码段，你可以轻松地构建服务基础结构，将推送通知传递到各种设备。了解使用通知中心和 node.js 的基础知识之后，请参考下列链接以了解有关如何进一步扩展这些功能的详细信息。
 
@@ -206,7 +198,7 @@ Azure 通知中心提供用于向移动设备发送推送通知的易于使用�
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
   [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
-  [Node.js Cloud Service]: /documentation/articles/cloud-services-nodejs-develop-deploy-app
+  [Node.js Cloud Service]: /documentation/articles/cloud-services-nodejs-develop-deploy-app/
 [Previous Management Portal]: ./media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
   [nodejswebsite]: /documentation/articles/app-service-web-nodejs-get-started/
   

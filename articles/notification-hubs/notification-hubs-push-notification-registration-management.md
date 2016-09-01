@@ -4,13 +4,13 @@
 	services="notification-hubs"
 	documentationCenter=".net"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
 	ms.service="notification-hubs"
-	ms.date="04/11/2016"
-	wacn.date="07/12/2016"/>
+	ms.date="06/29/2016"
+	wacn.date=""/>
 
 # 注册管理
 
@@ -24,7 +24,7 @@
 向通知中心注册设备是通过使用“注册”或“安装”来完成的。
 
 #### 注册
-注册将设备的平台通知服务 (PNS) 句柄与标记（有时还包括模板）相关联。PNS 句柄可能是 ChannelURI、设备令牌或 GCM 注册 ID。标记用于将通知路由到一组正确的设备句柄。有关详细信息，请参阅[路由和标记表达式](/documentation/articles/notification-hubs-tags-segment-push-message)。模板用于实现按注册转换。有关详细信息，请参阅[模板](/documentation/articles/notification-hubs-templates-cross-platform-push-messages)。
+注册将设备的平台通知服务 (PNS) 句柄与标记（有时还包括模板）相关联。PNS 句柄可能是 ChannelURI、设备令牌或 GCM 注册 ID。标记用于将通知路由到一组正确的设备句柄。有关详细信息，请参阅[路由和标记表达式](/documentation/articles/notification-hubs-tags-segment-push-message/)。模板用于实现按注册转换。有关详细信息，请参阅[模板](/documentation/articles/notification-hubs-templates-cross-platform-push-messages/)。
 
 #### 安装
 安装是增强型的注册，包含推送相关的属性包。它是最新且最佳的设备注册方式。但是，客户端 .NET SDK（[用于后端操作的通知中心 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)）目前不支持安装。这意味着，如果你要从客户端设备本身注册，则必须使用[通知中心 REST API](https://msdn.microsoft.com/library/mt621153.aspx) 方法来支持安装。如果使用后端服务，则应能够使用[用于后端操作的通知中心 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)。
@@ -79,7 +79,7 @@
 
 #### 模板
 
-如果你使用[模板](/documentation/articles/notification-hubs-templates-cross-platform-push-messages)，则设备安装还会保存与设备关联的、采用 JSON 格式的所有模板（请参阅上面的示例）。模板名称有助于将目标指向相同设备的不同模板。
+如果你使用[模板](/documentation/articles/notification-hubs-templates-cross-platform-push-messages/)，则设备安装还会保存与设备关联的、采用 JSON 格式的所有模板（请参阅上面的示例）。模板名称有助于将目标指向相同设备的不同模板。
 
 请注意，每个模板名称将映射到一个模板主体和一组可选的标记。此外，每个平台可能有附加的模板属性。对于 Windows 应用商店（使用 WNS）和 Windows Phone 8（使用 MPNS），模板中还可能会有一组附加标头。对于 APNs，可以将过期属性设为常量或模板表达式。有关完整的安装属性列表，请参阅[使用 REST 创建或覆盖安装](https://msdn.microsoft.com/library/azure/mt621153.aspx)主题。
 
@@ -328,4 +328,4 @@ SecondaryTiles 字典使用的 TileId 与在 Windows 应用商店应用中创建
 
 后端必须处理注册更新之间的并发性。服务总线为注册管理提供了乐观并发控制。在 HTTP 级别，这是通过对注册管理操作使用 ETag 来实现的。Microsoft SDK 以透明方式使用此功能，如果由于并发原因拒绝了更新，则会引发异常。应用后端负责处理这些异常并在需要时重试更新。
 
-<!---HONumber=Mooncake_0704_2016-->
+<!---HONumber=Mooncake_0808_2016-->

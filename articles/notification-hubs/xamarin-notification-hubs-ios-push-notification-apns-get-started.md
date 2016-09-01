@@ -2,16 +2,16 @@
 	pageTitle="使用通知中心针对 Xamarin 应用发送 iOS 推送通知 | Azure"
 	description="在本教程中，你将了解如何使用 Azure 通知中心将推送通知发送到 Xamarin iOS 应用程序。"
 	services="notification-hubs"
-    keywords="ios 推送通知, 推送消息, 推送通知, 推送消息"
+	keywords="ios 推送通知, 推送消息, 推送通知, 推送消息"
 	documentationCenter="xamarin"
-	authors="ysxu"
-	manager="dwrede"
-	editor=""/>
+	authors="wesmc7777"
+	manager="erikre"
+	editor=""/>  
 
 <tags
 	ms.service="notification-hubs"
-	ms.date="02/15/2016"
-	wacn.date="07/12/2016"/>
+	ms.date="06/29/2016"
+	wacn.date="08/23/2016"/>
 
 # 使用通知中心针对 Xamarin 应用发送 iOS 推送通知
 
@@ -20,7 +20,8 @@
 ##概述
 > [AZURE.IMPORTANT] 若要完成本教程，你必须有一个有效的 Azure 帐户。如果你没有帐户，只需花费几分钟就能创建一个免费试用帐户。有关详细信息，请参阅 [Azure 免费试用](/pricing/free-trial/)。
 
-本教程演示如何使用 Azure 通知中心将推送通知发送到 iOS 应用程序。你将创建一个空白 Xamarin.iOS 应用，它使用 [Apple Push Notification 服务 (APNs)](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html) 接收推送通知。完成后，你将能够使用通知中心将推送通知广播到运行你的应用的所有设备。[NotificationHubs][GitHub] 应用程序示例中提供了完成的代码。
+本教程演示如何使用 Azure 通知中心将推送通知发送到 iOS 应用程序。
+你将创建一个空白 Xamarin.iOS 应用，它使用 [Apple Push Notification 服务 (APNs)](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html) 接收推送通知。完成后，你将能够使用通知中心将推送通知广播到运行你的应用的所有设备。[NotificationHubs][GitHub] 应用程序示例中提供了完成的代码。
 
 本教程演示使用通知中心的简单推送消息广播方案。
 
@@ -40,7 +41,7 @@
 
 [AZURE.INCLUDE [通知中心：启用 Apple 推送通知](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
-
+<!--
 ##配置通知中心
 
 本部分将引导你使用创建的 **.p12** 推送证书创建新的通知中心并配置 APNS 身份验证。如果你想要使用已创建的通知中心，可以跳到步骤 5。
@@ -61,6 +62,7 @@
 
 你的通知中心现在已配置为使用 APNS，并且你有连接字符串用于注册你的应用和发送推送通知。
 
+-->
 
 ##将你的应用连接到通知中心
 
@@ -193,7 +195,7 @@
 
 * **Node.js**：[如何通过 Node.js 使用通知中心](/documentation/articles/notification-hubs-nodejs-push-notification-tutorial)。
 
-* **Azure 移动服务**：有关如何从与通知中心集成的 Azure 移动服务后端发送推送通知的示例，请参阅“移动服务中的推送通知入门”（[.NET 后端](/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push) | [JavaScript 后端](/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push)）。
+* **Azure 移动服务**：有关如何从与通知中心集成的 Azure 移动服务后端发送推送通知的示例，请参阅“移动服务中的推送通知入门”（[.NET 后端](/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push/) | [JavaScript 后端](/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push/)）。
 
 * **Java/PHP**：有关如何使用 REST API 发送推送通知的示例，请参阅“如何通过 Java/PHP 使用通知中心”([Java](/documentation/articles/notification-hubs-java-push-notification-tutorial) | [PHP](/documentation/articles/notification-hubs-php-push-notification-tutorial))。
 
@@ -324,4 +326,4 @@
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 [Azure 门户]: https://portal.azure.cn
 
-<!---HONumber=Mooncake_0704_2016-->
+<!---HONumber=Mooncake_0815_2016-->

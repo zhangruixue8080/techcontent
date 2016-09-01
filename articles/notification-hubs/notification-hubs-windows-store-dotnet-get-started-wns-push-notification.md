@@ -4,13 +4,13 @@
 	services="notification-hubs"
 	documentationCenter="windows"
 	authors="wesmc7777"
-	manager="dwrede"
-	editor="dwrede"/>
+	manager="erikre"
+	editor="erikre"/>  
 
 <tags
 	ms.service="notification-hubs"
-	ms.date="03/28/2016"
-	wacn.date="07/25/2016"/>
+	ms.date="06/29/2016"
+	wacn.date="08/23/2016"/>  
 
 # 通知中心入门（Windows 应用商店应用）
 
@@ -18,7 +18,7 @@
 
 ##概述
 
-本教程演示如何使用 Azure 通知中心将推送通知发送到 Windows 应用商店或 Windows Phone 8.1（非 Silverlight）应用程序。如果你要以 Windows Phone 8.1 Silverlight 为目标，请参阅 [Windows Phone](/documentation/articles/notification-hubs-windows-mobile-push-notifications-mpns) 版本。在本教程中，你将创建一个空白 Windows 应用商店应用，它使用 Windows 推送通知服务 (WNS) 接收推送通知。完成后，你将能够使用通知中心将推送通知广播到运行你的应用的所有设备。
+本教程演示如何使用 Azure 通知中心将推送通知发送到 Windows 应用商店或 Windows Phone 8.1（非 Silverlight）应用程序。如果你要以 Windows Phone 8.1 Silverlight 为目标，请参阅 [Windows Phone](/documentation/articles/notification-hubs-windows-mobile-push-notifications-mpns/) 版本。在本教程中，你将创建一个空白 Windows 应用商店应用，它使用 Windows 推送通知服务 (WNS) 接收推送通知。完成后，你将能够使用通知中心将推送通知广播到运行你的应用的所有设备。
 
 
 ## 开始之前
@@ -37,7 +37,7 @@
 
 + 有效的 Windows 应用商店帐户
 
-+ 一个有效的 Azure 帐户<br/>如果你没有帐户，只需花费几分钟就能创建一个免费试用帐户。有关详细信息，请参阅 [Azure 试用](/pricing/free-trial/)。
++ 一个有效的 Azure 帐户<br/>如果你没有帐户，只需花费几分钟就能创建一个免费试用帐户。有关详细信息，请参阅 [Azure 试用](/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 完成本教程是学习有关 Windows 应用商店应用程序的所有其他通知中心教程的先决条件。
 
@@ -86,10 +86,10 @@
 	客户端密钥和程序包 SID 是重要的安全凭据。请勿将这些值告知任何人或随你的应用程序分发它们。
 
 ##配置通知中心
-
+<!--
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
-
-<ol start="7">
+-->
+<ol start="1">
 <li><p>选择顶部的“配置”选项卡，输入你在前一部分中从 WNS 获取的“客户端密码”和“包 SID”值，然后单击“保存”。<b></b><b></b><b></b><b></b></p>
 </li>
 </ol>
@@ -256,6 +256,7 @@
 
 
 <!-- Images. -->
+
 [2]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-windows-universal-app.png
 [3]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-win8-app.png
 [4]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-select-app-name.png
@@ -280,4 +281,4 @@
 [磁贴目录]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [锁屏提醒]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=Mooncake_0704_2016-->
+<!---HONumber=Mooncake_0815_2016-->

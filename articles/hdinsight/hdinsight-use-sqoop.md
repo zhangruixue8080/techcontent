@@ -56,7 +56,7 @@ HDInsight 群集带有某些示例数据。你将会使用以下两个示例：
 
 	/tutorials/usesqoop/importeddata
 
-##<a name="create-cluster-and-sql-database"></a> 创建群集和 SQL 数据库
+## <a name="create-cluster-and-sql-database"></a> 创建群集和 SQL 数据库
 
 在 [Azure 经典管理门户](https://manage.windowsazure.cn)上创建 SQL 数据库。
 
@@ -262,7 +262,10 @@ PowerShell 示例将执行以下步骤：
 	catch{Login-AzureRmAccount -EnvironmentName AzureChinaCloud}
 
     try{Get-AzureSubscription}
-	catch{Add-AzureAccount -Environment AzureChinaCloud}
+	catch{
+			Clear-AzureProfile
+			Import-AzurePublishSettingsFile -PublishSettingsFile path/to/<subscription name>-<date>-credentials.publishsettings
+		}
 	#endregion
 	
 	#region - Create Azure resouce group

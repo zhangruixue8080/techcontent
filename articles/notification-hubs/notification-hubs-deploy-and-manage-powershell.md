@@ -21,7 +21,7 @@
 + 创建通知中心
 + 设置凭据
 
-如果你还需要为通知中心创建新的服务总线命名空间，请参阅[使用 PowerShell 管理服务总线](/documentation/articles/service-bus-powershell-how-to-provision)。
+如果你还需要为通知中心创建新的服务总线命名空间，请参阅[使用 PowerShell 管理服务总线](/documentation/articles/service-bus-powershell-how-to-provision/)。
 
 不支持直接使用 Azure PowerShell 随附的 cmdlet 来管理通知中心。在 PowerShell 中，最佳方法是引用 Microsoft.Azure.NotificationHubs.dll 程序集。该程序集是随 [Microsoft Azure 通知中心 NuGet 包](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)一起分发的。
 
@@ -78,11 +78,11 @@ powershell
 
 powershell
 
-		$sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
-		# Create the NamespaceManager object to create the hub
-		Write-Output "Creating a NamespaceManager object for the [$Namespace] namespace..."
-		$NamespaceManager=[Microsoft.Azure.NotificationHubs.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
-		Write-Output "NamespaceManager object for the [$Namespace] namespace has been successfully created."
+	$sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
+	# Create the NamespaceManager object to create the hub
+	Write-Output "Creating a NamespaceManager object for the [$Namespace] namespace..."
+	$NamespaceManager=[Microsoft.Azure.NotificationHubs.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
+	Write-Output "NamespaceManager object for the [$Namespace] namespace has been successfully created."
 
 
 
@@ -97,7 +97,7 @@ powershell
 3.`$WnsPackageSid`：从 [Windows 开发人员中心](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409)将此变量设置为 Windows 应用的包 SID。  
 4.`$WnsSecretkey`：从 [Windows 开发人员中心](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409)将此变量设置为 Windows 应用的机密密钥。  
 
-这些变量可用于连接命名空间，以及创建配置为使用 Windows 应用 Windows 通知中心 (WNS) 凭据处理 WNS 通知的新通知中心。有关获取包 SID 和机密密钥的信息，请参阅[通知中心入门](/documentation/articles/notification-hubs-windows-store-dotnet-get-started-wns-push-notification)教程。
+这些变量可用于连接命名空间，以及创建配置为使用 Windows 应用 Windows 通知中心 (WNS) 凭据处理 WNS 通知的新通知中心。有关获取包 SID 和机密密钥的信息，请参阅[通知中心入门](/documentation/articles/notification-hubs-windows-store-dotnet-get-started-wns-push-notification/)教程。
 
 + 脚本代码段使用 `NamespaceManager` 对象来检查 `$Path` 标识的通知中心是否存在。
 
@@ -105,45 +105,45 @@ powershell
 
 powershell
 		
-		$Namespace = "<Enter your namespace>"
-		$Path  = "<Enter a name for your notification hub>"
-		$WnsPackageSid = "<your package sid>"
-		$WnsSecretkey = "<enter your secret key>"
-		
-		$WnsCredential = New-Object -TypeName Microsoft.Azure.NotificationHubs.WnsCredential -ArgumentList $WnsPackageSid,$WnsSecretkey
-		
-		# Query the namespace
-		$CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
-		
-		# Check if the namespace already exists
-		if ($CurrentNamespace)
-		{
-		    Write-Output "The namespace [$Namespace] in the [$($CurrentNamespace.Region)] region was found."
-		
-		    # Create the NamespaceManager object used to create a new notification hub
-		    $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
-		    Write-Output "Creating a NamespaceManager object for the [$Namespace] namespace..."
-		    $NamespaceManager = [Microsoft.Azure.NotificationHubs.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
-		    Write-Output "NamespaceManager object for the [$Namespace] namespace has been successfully created."
-		
-		    # Check to see if the Notification Hub already exists
-		    if ($NamespaceManager.NotificationHubExists($Path))
-		    {
-		        Write-Output "The [$Path] notification hub already exists in the [$Namespace] namespace."  
-		    }
-		    else
-		    {
-		        Write-Output "Creating the [$Path] notification hub in the [$Namespace] namespace."
-		        $NHDescription = New-Object -TypeName Microsoft.Azure.NotificationHubs.NotificationHubDescription -ArgumentList $Path;
-		        $NHDescription.WnsCredential = $WnsCredential;
-		        $NamespaceManager.CreateNotificationHub($NHDescription);
-		        Write-Output "The [$Path] notification hub was created in the [$Namespace] namespace."
-		    }
-		}
-		else
-		{
-		    Write-Host "The [$Namespace] namespace does not exist."
-		}
+	$Namespace = "<Enter your namespace>"
+	$Path  = "<Enter a name for your notification hub>"
+	$WnsPackageSid = "<your package sid>"
+	$WnsSecretkey = "<enter your secret key>"
+	
+	$WnsCredential = New-Object -TypeName Microsoft.Azure.NotificationHubs.WnsCredential -ArgumentList $WnsPackageSid,$WnsSecretkey
+	
+	# Query the namespace
+	$CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
+	
+	# Check if the namespace already exists
+	if ($CurrentNamespace)
+	{
+	    Write-Output "The namespace [$Namespace] in the [$($CurrentNamespace.Region)] region was found."
+	
+	    # Create the NamespaceManager object used to create a new notification hub
+	    $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
+	    Write-Output "Creating a NamespaceManager object for the [$Namespace] namespace..."
+	    $NamespaceManager = [Microsoft.Azure.NotificationHubs.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
+	    Write-Output "NamespaceManager object for the [$Namespace] namespace has been successfully created."
+	
+	    # Check to see if the Notification Hub already exists
+	    if ($NamespaceManager.NotificationHubExists($Path))
+	    {
+	        Write-Output "The [$Path] notification hub already exists in the [$Namespace] namespace."  
+	    }
+	    else
+	    {
+	        Write-Output "Creating the [$Path] notification hub in the [$Namespace] namespace."
+	        $NHDescription = New-Object -TypeName Microsoft.Azure.NotificationHubs.NotificationHubDescription -ArgumentList $Path;
+	        $NHDescription.WnsCredential = $WnsCredential;
+	        $NamespaceManager.CreateNotificationHub($NHDescription);
+	        Write-Output "The [$Path] notification hub was created in the [$Namespace] namespace."
+	    }
+	}
+	else
+	{
+	    Write-Host "The [$Namespace] namespace does not exist."
+	}
 
 
 

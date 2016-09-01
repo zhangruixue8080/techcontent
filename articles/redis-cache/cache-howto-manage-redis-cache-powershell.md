@@ -119,9 +119,8 @@
 
 使用 [New-AzureRmRedisCache](https://msdn.microsoft.com/zh-cn/library/azure/mt634517.aspx) cmdlet 创建新的 Azure Redis 缓存实例。
 
->[AZURE.IMPORTANT] 第一次使用 Azure 门户在订阅中创建 Redis 缓存时，门户将为该订阅注册 `Microsoft.Cache` 命名空间。如果尝试使用 PowerShell 在订阅中创建第一个 Redis 缓存，必须首先使用以下命令注册命名空间；否则，诸如 `New-AzureRmRedisCache` 和 `Get-AzureRmRedisCache` 的 cmdlet 将失败。
->
->`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
+>[AZURE.IMPORTANT] 第一次使用 Azure 门户预览在订阅中创建 Redis 缓存时，门户将为该订阅注册 `Microsoft.Cache` 命名空间。如果尝试使用 PowerShell 在订阅中创建第一个 Redis 缓存，必须首先使用以下命令注册命名空间；否则，诸如 `New-AzureRmRedisCache` 和 `Get-AzureRmRedisCache` 的 cmdlet 将失败。
+><p>`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
 
 若要查看 `New-AzureRmRedisCache` 的可用参数列表及其说明，请运行以下命令。
 
@@ -288,16 +287,14 @@
 
 修改 `Size`、`Sku` 或 `ShardCount` 属性时，可以使用 `Set-AzureRmRedisCache` 来缩放 Azure Redis 缓存实例。
 
->[AZURE.NOTE]使用 PowerShell 缩放缓存受到的限制和要遵循的准则与在 Azure 门户中缩放缓存相同。你可以扩展到不同定价层，但有以下限制。
->
->-	不能从较高的定价层缩放到较低的定价层。
->    -    不能从**高级**缓存向下缩放到**标准**或**基本**缓存。
->    -    不能从**标准**缓存向下缩放到**基本**缓存。
->-	可以从**基本**缓存缩放为**标准**缓存，但不能同时更改大小。如果你需要不同大小，则可以执行后续缩放操作以缩放为所需大小。
->-	不能从**基本**缓存直接缩放到**高级**缓存。必须在一个缩放操作中从**基本**缩放到**标准**，然后在后续的缩放操作中从**标准**缩放到**高级**。
->-	不能从较大的大小减小为 **C0 (250 MB)** 大小。
->
->有关详细信息，请参阅[如何缩放 Azure Redis 缓存](/documentation/articles/cache-how-to-scale/)。
+>[AZURE.NOTE]使用 PowerShell 缩放缓存受到的限制和要遵循的准则与在 Azure 门户预览中缩放缓存相同。你可以扩展到不同定价层，但有以下限制。
+><p>-	不能从较高的定价层缩放到较低的定价层。
+><p>    -    不能从**高级**缓存向下缩放到**标准**或**基本**缓存。
+><p>    -    不能从**标准**缓存向下缩放到**基本**缓存。
+><p>-	可以从**基本**缓存缩放为**标准**缓存，但不能同时更改大小。如果你需要不同大小，则可以执行后续缩放操作以缩放为所需大小。
+><p>-	不能从**基本**缓存直接缩放到**高级**缓存。必须在一个缩放操作中从**基本**缩放到**标准**，然后在后续的缩放操作中从**标准**缩放到**高级**。
+><p>-	不能从较大的大小减小为 **C0 (250 MB)** 大小。
+><p>有关详细信息，请参阅[如何缩放 Azure Redis 缓存](/documentation/articles/cache-how-to-scale/)。
 
 以下示例演示了如何将名为 `myCache` 的缓存缩放为 2.5 GB 缓存。请注意，此命令适用于基本或标准缓存。
 
@@ -554,7 +551,7 @@
 	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
 
-## 导入 Redis 缓存
+## <a name="to-import-a-redis-cache"></a>导入 Redis 缓存
 
 你可以使用 `Import-AzureRmRedisCache` cmdlet 将数据导入 Azure Redis 缓存实例。
 
@@ -613,7 +610,7 @@
 
 	PS C:\>Import-AzureRmRedisCache -ResourceGroupName "resourceGroupName" -Name "cacheName" -Files @("https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainername/blobname?sv=2015-04-05&sr=b&sig=caIwutG2uDa0NZ8mjdNJdgOY8%2F8mhwRuGNdICU%2B0pI4%3D&st=2016-05-27T00%3A00%3A00Z&se=2016-05-28T00%3A00%3A00Z&sp=rwd") -Force
 
-## 导出 Redis 缓存
+## <a name="to-export-a-redis-cache"></a>导出 Redis 缓存
 
 你可以使用 `Export-AzureRmRedisCache` cmdlet 将数据从 Azure Redis 缓存实例导出。
 
@@ -738,7 +735,7 @@
 
 - [MSDN 上的 Azure Redis 缓存 cmdlet 文档](https://msdn.microsoft.com/zh-cn/library/azure/mt634513.aspx)
 - [Azure 资源管理器 Cmdlet](https://msdn.microsoft.com/zh-cn/library/azure/mt125356.aspx)：了解如何在 AzureResourceManager 模块中使用这些 cmdlet。
-- [使用资源组来管理 Azure 资源](/documentation/articles/resource-group-portal/)：了解如何在 Azure 门户中创建和管理资源组。
+- [使用资源组来管理 Azure 资源](/documentation/articles/resource-group-portal/)：了解如何在 Azure 门户预览中创建和管理资源组。
 - [Azure 博客](/blog/)：了解 Azure 中的新功能。
 - [“你好，脚本编写专家！” 博客](http://blogs.technet.com/b/heyscriptingguy/)：从 Windows PowerShell 社区获取实用提示和技巧。
 
