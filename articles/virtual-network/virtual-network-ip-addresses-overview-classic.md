@@ -39,10 +39,10 @@
 ### DNS 主机名解析
 在创建云服务或 IaaS VM 时，你需要提供在 Azure 的所有资源中唯一的云服务 DNS 名称。这将在 Azure 托管的 DNS 服务器中创建 *dnsname*.chinacloudapp.cn 到资源的公共 IP 地址的映射。例如，当你创建云服务 DNS 名称为 **contoso** 的云服务时，完全限定域名 (FQDN) **contoso.chinacloudapp.cn** 将解析为该云服务的公共 IP 地址 (VIP)。可以使用此 FQDN 创建指向 Azure 中的公共 IP 地址的自定义域 CNAME 记录。
 
-###<a name="Cloud-services"></a> 云服务
+### <a name="Cloud-services"></a> 云服务
 云服务始终具有一个称为虚拟 IP 地址 (VIP) 的公共 IP 地址。你可以在云服务中创建终结点，以便将 VIP 中的不同端口关联到 VM 中的内部端口以及云服务中的角色实例。
 
-云服务可以包含多个 IaaS VM 或 PaaS 角色实例，通过同一云服务 VIP 公开。你还可以为云服务分配多个 VIP，从而启用多 VIP 方案，如包含基于 SSL 的网站的多租户环境。
+云服务可以包含多个 IaaS VM 或 PaaS 角色实例，通过同一云服务 VIP 公开。你还可以[为云服务分配多个 VIP](/documentation/articles/load-balancer-multivip/)，从而启用多 VIP 方案，如包含基于 SSL 的网站的多租户环境。
 
 你可以通过使用称为[保留 IP](/documentation/articles/virtual-networks-reserved-public-ip/) 的*静态*公共 IP 地址来确保云服务的公共 IP 地址保持不变，即使所有角色实例均已停止，也是如此。你可以在特定位置中创建静态（保留）IP 资源并将其分配给该位置中的任何云服务。你不能为保留 IP 指定实际 IP 地址，该地址从创建它的位置中的可用的 IP 地址池分配。除非你显式删除它，否则不会释放该 IP 地址。
 

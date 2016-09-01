@@ -31,7 +31,7 @@
 - 你可以使用 Azure 中提供的[连接选项](/documentation/articles/vpn-gateway-cross-premises-options/)之一将 VNet 连接到本地网络。 
 - 不同资源可以在[资源组](/documentation/articles/resource-group-overview/#resource-groups)中分组在一起，这样可便于将资源作一个单元来进行管理。资源组可以包含多个区域中的资源，只要这些资源属于同一订阅。
 
-###<a name="Define-requirements"></a> 定义要求
+### <a name="Define-requirements"></a> 定义要求
 
 使用下面的问题作为 Azure 网络设计的起点。
 
@@ -77,7 +77,7 @@ VNet 包含以下属性。
 
 默认情况下，你的 VNet 使用 [Azure 提供的名称解析](/documentation/articles/virtual-networks-name-resolution-for-vms-and-role-instances/#Azure-provided-name-resolution)来解析 VNet 内部和公共 Internet 上的名称。但是，如果你将 VNet 连接到本地数据中心，则需要提供 [你自己的 DNS 服务器](/documentation/articles/virtual-networks-name-resolution-for-vms-and-role-instances/#Name-resolution-using-your-own-DNS-server)来解析网络之间的名称。
 
-###<a name="Limits"></a> 限制
+### <a name="Limits"></a> 限制
 
 在设计解决方案之前，请确保查看所有[与 Azure 中的网络服务相关的限制](/documentation/articles/azure-subscription-service-limits/#networking-limits)。可以通过开具支持票证增加某些限制。
 
@@ -162,7 +162,7 @@ VNet 包含以下属性。
 - 每天应将每个位置中的数据库复制到其他 Azure 位置一次。
 - 每个应用程序应使用 5 个前端 Web 服务器、2 个应用程序服务器（如有必要）和 2 个数据库服务器。
 
-###<a name="Plan"></a> 计划
+### <a name="Plan"></a> 计划
 
 应通过回答[定义要求](#Define-requirements)部分中的问题（如下所示）来开始你的设计规划。
 
@@ -258,7 +258,7 @@ VNet 包含以下属性。
 
 ## 后续步骤
 
-- 了解如何对 IaaS VM 进行负载平衡，以及如何[管理通过多个 Azure 区域的路由](/documentation/articles/traffic-manager-overview/)。
+- 了解如何对 IaaS VM 进行[负载平衡](/documentation/articles/load-balancer-overview)，以及如何[管理通过多个 Azure 区域的路由](/documentation/articles/traffic-manager-overview/)。
 - 详细了解 [NSG 以及如何规划和设计](/documentation/articles/virtual-networks-nsg/) NSG 解决方案。
 - 详细了解[跨界连接和 VNet 连接选项](/documentation/articles/vpn-gateway-cross-premises-options/)。  
 

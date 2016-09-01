@@ -30,7 +30,7 @@ Azure Blob 存储是一种稳健、通用的存储解决方案，它与 HDInsigh
 有关创建 HDInsight 群集的信息，请参阅 [HDInsight 入门][hdinsight-get-started]或[创建 HDInsight 群集][hdinsight-creation]。
 
 
-##<a id="architecture"></a>HDInsight 存储体系结构
+## <a id="architecture"></a>HDInsight 存储体系结构
 下图提供了 HDInsight 存储体系结构的抽象视图：
 
 ![Hadoop 群集使用 HDFS API 来访问 Blob 存储中的结构化和非结构化数据，并在其中存储这些数据。](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight 存储体系结构")
@@ -64,7 +64,7 @@ Hadoop 支持默认文件系统的概念。默认文件系统意指默认方案�
 
 Blob 存储可用于结构化和非结构化数据。Blob 存储容器将数据存储为键值对，没有目录层次结构。不过，可在键名称中使用斜杠字符 (/)，使其看起来像存储在目录结构中的文件。例如，Blob 的键可以是 *input/log1.txt*。不存在实际的 *input* 目录，但由于键名称中包含斜杠字符，因此使其看起来像一个文件路径。
 
-###<a id="benefits"></a>Blob 存储的优点
+### <a id="benefits"></a>Blob 存储的优点
 通过在 Azure 数据中心的存储帐户资源附近创建计算群集，使计算节点能够通过高速网络非常高效地访问 Azure Blob 存储中的数据，从而减少了非并置计算群集和存储资源所产生的隐含性能成本。
 
 在 Azure Blob 存储而非 HDFS 中存储数据有几个好处：
@@ -79,7 +79,7 @@ Blob 存储可用于结构化和非结构化数据。Blob 存储容器将数据�
 
 
 
-##<a id="preparingblobstorage"></a>创建 Blob 容器
+## <a id="preparingblobstorage"></a>创建 Blob 容器
 
 若要使用 Blob，必须先创建 [Azure 存储帐户][azure-storage-create]。在创建帐户期间，需要指定将存储你使用此帐户创建的对象的 Azure 数据中心。群集和存储帐户都必须位于同一数据中心。Hive 元存储 SQL Server 数据库和 Oozie 元存储 SQL Server 数据库也必须位于同一数据中心。
 
@@ -120,7 +120,10 @@ Blob 存储可用于结构化和非结构化数据。Blob 存储容器将数据�
 	$containerName="<BlobContainerToBeCreated>" # The Blob container name that you will create
 
 	# Connect to your Azure account and selec the current subscription
-	Add-AzureAccount # The connection will expire in 12 hours.
+	
+	Clear-AzureProfile
+	Import-AzurePublishSettingsFile -PublishSettingsFile path/to/<subscription name>-<date>-credentials.publishsettings
+
 	Select-AzureSubscription $subscriptionName #only required if you have multiple subscriptions
 
 	# Create a storage context object
@@ -130,7 +133,7 @@ Blob 存储可用于结构化和非结构化数据。Blob 存储容器将数据�
 	# Create a Blob storage container
 	New-AzureStorageContainer -Name $containerName -Context $destContext
 
-##<a id="addressing"></a>确定 Blob 存储空间中文件的地址
+## <a id="addressing"></a>确定 Blob 存储空间中文件的地址
 
 用于从 HDInsight 访问 Blob 存储中的文件的 URI 方案为：
 
@@ -160,7 +163,7 @@ URI 方案提供了使用 *wasbs:* 前缀的未加密访问和使用 *wasbs* 的
 
 > [AZURE.NOTE] 在 HDInsight 外部使用 Blob 时，大多数实用程序无法识别 WASB 格式，你应该改用基本的路径格式，如 `example/jars/hadoop-mapreduce-examples.jar`。
 
-##<a id="azurecli"></a>使用 Azure CLI 访问 Blob
+## <a id="azurecli"></a>使用 Azure CLI 访问 Blob
 
 使用以下命令列出与 Blob 有关的命令：
 
@@ -182,7 +185,7 @@ URI 方案提供了使用 *wasbs:* 前缀的未加密访问和使用 *wasbs* 的
 
 	azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-##<a id="powershell"></a>使用 Azure PowerShell 访问 Blob
+## <a id="powershell"></a>使用 Azure PowerShell 访问 Blob
 
 > [AZURE.NOTE] 本部分中的命令提供了使用 PowerShell 访问 Blob 中存储的数据的基本示例。有关针对使用 HDInsight 自定义的功能更加全面的示例，请参阅 [HDInsight 工具](https://github.com/Blackmist/hdinsight-tools)。
 
@@ -204,8 +207,7 @@ URI 方案提供了使用 *wasbs:* 前缀的未加密访问和使用 *wasbs* 的
 	$containerName = "<BlobStorageContainerName>"  # The default file system container has the same name as the cluster.
 	$blob = "example/data/sample.log" # The name of the blob to be downloaded.
 	
-	# Use Add-AzureAccount if you haven't connected to your Azure subscription
-	#Add-AzureAccount # The connection is good for 12 hours
+	# Use Import-AzurePublishSettingsFile if you haven't connected to your Azure subscription
 
 	# Use these two commands if you have multiple subscriptions
 	#$subscriptionName = "<SubscriptionName>"
@@ -229,8 +231,7 @@ URI 方案提供了使用 *wasbs:* 前缀的未加密访问和使用 *wasbs* 的
 	$containerName = "<BlobStorageContainerName>"  # The default file system container has the same name as the cluster.
 	$blob = "example/data/sample.log" # The name of the blob to be downloaded.
 
-	# Use Add-AzureAccount if you haven't connected to your Azure subscription
-	#Add-AzureAccount -Environment AzureChinaCloud # The connection is good for 12 hours
+	# Use Import-AzurePublishSettingsFile if you haven't connected to your Azure subscription
 
 	# Use these two commands if you have multiple subscriptions
 	#$subscriptionName = "<SubscriptionName>"
@@ -251,8 +252,7 @@ URI 方案提供了使用 *wasbs:* 前缀的未加密访问和使用 *wasbs* 的
 	$containerName = "<BlobStorageContainerName>"  # The default file system container has the same name as the cluster.
 	$blobPrefix = "example/data/"
 
-	# Use Add-AzureAccount if you haven't connected to your Azure subscription
-	#Add-AzureAccount -Environment AzureChinaCloud # The connection is good for 12 hours
+	# Use Import-AzurePublishSettingsFile if you haven't connected to your Azure subscription
 
 	# Use these two commands if you have multiple subscriptions
 	#$subscriptionName = "<SubscriptionName>"
@@ -283,7 +283,7 @@ URI 方案提供了使用 *wasbs:* 前缀的未加密访问和使用 *wasbs* 的
 
 	Invoke-Hive -Defines $defines -Query "dfs -ls wasbs://$undefinedContainer@$undefinedStorageAccount.blob.core.chinacloudapi.cn/;"
 
-##<a id="nextsteps"></a>后续步骤
+## <a id="nextsteps"></a>后续步骤
 
 在本文中，你已学习如何将 HDFS 兼容的 Azure Blob 存储与 HDInsight 配合使用，并已了解 Azure Blob 存储是 HDInsight 的一个基本组件。这样，你就可以使用 Azure Blob 存储来生成可伸缩的长期存档数据获取解决方案，并使用 HDInsight 来解锁所存储结构化和非结构化数据内的信息。
 

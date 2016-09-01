@@ -17,7 +17,7 @@
 
 Azure HDInsight 中的每个 Hadoop 群集都有一个用作默认文件系统的 Azure 存储帐户。该存储帐户称作默认存储帐户。群集使用默认存储帐户上的 Azure 表存储和 Blob 存储来存储其日志。即使在删除群集以后，日志仍会保留在存储帐户中。
 
-##<a name="log-written-to-azure-tables"></a>写入 Azure 表的日志
+## <a name="log-written-to-azure-tables"></a>写入 Azure 表的日志
 
 通过写入 Azure 表的日志，你可以在一定程度上了解 HDInsight 群集中发生的事件。
 
@@ -34,14 +34,14 @@ Azure HDInsight 中的每个 Hadoop 群集都有一个用作默认文件系统�
 - ClusterDnsName
 - ComponentName
 - EventTimestamp
-- 主机
+- Host
 - MALoggingHash
-- 消息
+- Message
 - N
 - PreciseTimeStamp
-- 角色
+- Role
 - RowIndex
-- 租户
+- Tenant
 - TIMESTAMP
 - TraceLevel
 
