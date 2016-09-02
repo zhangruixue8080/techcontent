@@ -12,7 +12,7 @@
 	ms.date="06/16/2016"
 	wacn.date="07/18/2016"/>
 
-# 事件中心入门
+# 事件中心入门test
 
 [AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
