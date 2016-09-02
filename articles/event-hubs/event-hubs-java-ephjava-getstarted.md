@@ -14,7 +14,7 @@
 
 # 事件中心入门
 
-[AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
+[AZURE.INCLUDE [service-bus-selector-get-started](../../../includes/service-bus-selector-get-started.md)]
 
 ## 介绍
 
