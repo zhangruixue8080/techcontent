@@ -16,7 +16,7 @@
 
 [AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
-## 介绍
+##  介绍
 
 事件中心是一个具备高度可伸缩性的引入系统，每秒可收入大量事件，从而使应用程序能够处理和分析你连接的设备和应用程序所产生的海量数据。将数据采集到事件中心后，你可以使用任何实时分析提供程序或存储群集来转换和存储数据。
 
