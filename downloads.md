@@ -6,7 +6,7 @@
 
 
 <div>
-  <h1>下载 stage test</h1>
+  <h1>下载 ruixue test/h1>
   <h3>获取你所需的 SDK 和命令行工具</h3>
 </div>
 <div>
