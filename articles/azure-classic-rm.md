@@ -11,7 +11,7 @@
 <tags
    ms.service="virtual-network"
    ms.date="02/11/2016"
-   wacn.date="05/30/2016"/>
+   wacn.date="05/30/2016"
 
 # Azure 部署模型
 
