@@ -13,7 +13,7 @@
 	ms.date="06/16/2016"
 	wacn.date="07/28/2016"/>
 
-# 通过远程桌面将 Hive 与 HDInsight 上的 Hadoop 配合使用
+# 通过远程桌面将 Hive 与 HDInsight 上的 Hadoop 配合使用test
 
 [AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
