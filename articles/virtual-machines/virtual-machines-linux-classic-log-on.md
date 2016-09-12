@@ -14,7 +14,7 @@
 	wacn.date="06/13/2016"/>
 
 
-#如何登录到运行 Linux 的虚拟机 #
+#如何登录到运行 Linux 的虚拟机test #
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Azure 建议大多数新部署使用资源管理器模型。学习如何[使用资源管理器模型执行这些步骤](/documentation/articles/virtual-machines-linux-quick-create-portal/)。
 
