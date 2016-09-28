@@ -13,7 +13,7 @@
    wacn.date="08/01/2016"/>
 
 
-# Azure AD Connect：帐户和权限
+# Azure AD Connect：帐户和权限测试
 
 <a name="create-the-ad-ds-account"></a>Azure AD Connect 安装向导提供提供两种不同的路径：
 
