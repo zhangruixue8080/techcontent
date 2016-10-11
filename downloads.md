@@ -18,7 +18,7 @@
    wacn.date="10/10/2016"
    ms.author="larryfr"/>
 
-#使用4 Apache Storm 和 HDInsight 上的 Maven 为基本的单词计数应用程序开发基于 Java 的拓扑
+#使用5 Apache Storm 和 HDInsight 上的 Maven 为基本的单词计数应用程序开发基于 Java 的拓扑
 
 了解如何使用 Maven 为 HDInsight 上的 Apache Storm 创建基于 Java 的拓扑。本文将会演练使用 Maven 和 Java（如果拓扑是在 Java 中定义的）创建基本单词计数应用程序的过程。然后，介绍如何使用 Flux 框架定义拓扑。
 
