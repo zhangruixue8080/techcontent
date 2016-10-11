@@ -94,7 +94,7 @@ Maven 允许定义项目级的值，称为属性。在 `<url>http://maven.apache
 
 ##添加依赖项
 
-由于这是一个 Storm 拓扑，因此你必须添加 Storm 组件的依赖项。打开 **pom.xml**，并在 **&lt;dependencies>** 节中添加以下代码：
+由于这是一个 Storm 拓扑，因此你必须添加 Storm 组件的依赖项。打开 **pom.xml**，并在 **<dependencies>** 节中添加以下代码：
 
     <dependency>
         <groupId>org.apache.storm</groupId>
